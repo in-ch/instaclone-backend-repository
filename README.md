@@ -18,4 +18,6 @@ Instaclone Backend.
 #3.5 Prisma에서 client는 기본적으로 '어떤 방식으로 데이터베이스와 상호작용하는가'에 대한 역할을 한다. 
      Prisma Migrate는 schema.prisma 파일의 데이터모델을 쓰고 설명할 수 있게 한다. 
 
-     
+#3.6 client는 특이하게 node_modules에 저장되어 있음. 
+     스키마랑 type definition이 일치해야 정확하게 실행이 가능함
+     client 불러와서 명령어 실행 
