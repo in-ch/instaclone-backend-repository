@@ -21,3 +21,5 @@ Instaclone Backend.
 #3.6 client는 특이하게 node_modules에 저장되어 있음. 
      스키마랑 type definition이 일치해야 정확하게 실행이 가능함
      client 불러와서 명령어 실행 
+
+#3.7 schema.js는 쪼개져 있는 파일들을 merge하는 파일이고 이걸 server.js에서 불러와서 사용한다. 
