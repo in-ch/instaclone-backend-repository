@@ -1,11 +1,20 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-datasource db {
+datasource db { // Prisma에게 데이터베이스의 주소(url)와 종류(provider)에 대해 알려주는 것이다. 
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL")   
 }
 
 generator client {
   provider = "prisma-client-js"
+}
+
+model Movie {
+  id Int @id @default(autoincrement()) 
+  title String
+  year Int 
+  genre String?  // not null 
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 }
