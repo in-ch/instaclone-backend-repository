@@ -12,11 +12,10 @@ export default gql`
     }
     type Mutation{
         createAccount(
-            id: Int!
             firstName: String!
             lastName: String
-            userName: String!
-            email: String! 
+            username: String!
+            email: String!
             password: String!
         ):User #User를 반환하는 것이다. 
     }

@@ -1,9 +1,9 @@
 import client from '../client';
+import bcrypt from 'bcrypt';
 
 export default{
     Mutation: {
         createAccount: async (_, {
-            id,
             firstName,
             lastName,
             userName,
@@ -21,7 +21,16 @@ export default{
                     ]
                 }
             });
-
+            const uglyPassword = await bcrypt.hash(password,10);
+            return client.user.create({
+                data: {
+                    firstName,
+                    lastName,
+                    userName,
+                    email,
+                    password:uglyPassword,
+                },
+            })            
         }
     },
 }
