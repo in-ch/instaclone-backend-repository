@@ -12,8 +12,8 @@ export default gql`
     }
     type loginResult {
         ok: Boolean!
-        error: String!
-        token: String! 
+        error: String
+        token: String 
     }
     type Mutation{  # 꼭 스키마 연결할 필요 없음. 
         createAccount(

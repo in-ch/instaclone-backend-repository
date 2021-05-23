@@ -23,3 +23,10 @@ Instaclone Backend.
      client 불러와서 명령어 실행 
 
 #3.7 schema.js는 쪼개져 있는 파일들을 merge하는 파일이고 이걸 server.js에서 불러와서 사용한다. 
+
+#4.4 login이 mutation인 이유는 로그인 자체가 유저의 status의 변화이기 때문에 Mutation이다. 
+     login 자체가 동사이기도 하면서 Auth가 False로 부터 true로 변화하기 때문에 
+     일단 이 프로젝트에서는 로그인 기록 로그인 상태에 대한 변화를 db에 저장안하므로 
+     mutation에 속함. 
+     mutation에는 스키마 연결이 필수는 아니지만
+     query에는 스키마 연결이 필수이다. 
