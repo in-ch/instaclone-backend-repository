@@ -20,6 +20,6 @@ export default gql`
         ):User #User를 반환하는 것이다. 
     }
     type Query{
-        seeProfile(username:String!):User 
+        seeProfile(userName:String!):User 
     }
 `;
