@@ -14,7 +14,7 @@ export default gql`
         createAccount(
             firstName: String!
             lastName: String
-            username: String!
+            userName: String!
             email: String!
             password: String!
         ):User #User를 반환하는 것이다. 

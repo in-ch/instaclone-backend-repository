@@ -10,7 +10,7 @@ export default{
             email,
             password,
         }) => {
-            const existingUser = await client.user.findUnique({
+            const existingUser = await client.user.findFirst({
                 where: {
                     OR: [
                         {
