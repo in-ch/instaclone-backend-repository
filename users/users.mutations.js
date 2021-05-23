@@ -38,6 +38,30 @@ export default{
             } catch (err){
                 return err;
             }
+        },
+        login: async (_ ,
+            { 
+                userName, 
+                password
+            }) => {
+                const user = await client.user.findUnique({
+                    where: {
+                        userName
+                    }
+                });
+                if(!user){
+                    return {
+                        ok: false,
+                        error: '유저가 없습니다.',
+                    }
+                }
+                const passwordCheck = await bcrypt.compare(password, user.password);
+                if(!passwordCheck){
+                    return {
+                        ok: false,
+                        error: '비밀번호가 틀립니다.'
+                    }
+                }  
         }
     },
 }
