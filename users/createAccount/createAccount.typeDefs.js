@@ -1,6 +1,10 @@
 import { gql } from "apollo-server";
 
 export default gql`
+    type createAccountResult {
+        ok: Boolean!
+        error: String
+    }
     type Mutation{  # 꼭 스키마 연결할 필요 없음. 
         createAccount(
             firstName: String!
@@ -8,6 +12,6 @@ export default gql`
             userName: String!
             email: String!
             password: String!
-        ):User #User를 반환하는 것이다. 
+        ):createAccountResult #User를 반환하는 것이다. 
     }
 `;

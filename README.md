@@ -30,3 +30,6 @@ Instaclone Backend.
      mutation에 속함. 
      mutation에는 스키마 연결이 필수는 아니지만
      query에는 스키마 연결이 필수이다. 
+
+#4.6 update할 때 prisma에 undefined를 보내면 데이터베이스에 그 값들을 보내지 않음. 
+     그래서 알아서 필터링 해줌

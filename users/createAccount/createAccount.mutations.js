@@ -27,7 +27,7 @@ export default{
                     throw new Error("닉네임 혹은 이메일이 이미 사용 중입니다.");
                 }
                 const uglyPassword = await bcrypt.hash(password,10);
-                return client.user.create({
+                const newUser = client.user.create({
                     data: {
                         firstName,
                         lastName,
@@ -35,7 +35,11 @@ export default{
                         email,
                         password:uglyPassword,
                     },
-                })  
+                });
+                return {
+                    ok: true,
+                    token
+                }
             } catch (err){
                 return err;
             }
