@@ -4,6 +4,9 @@ import schema from "./schema";
 
 const server = new ApolloServer({
     schema,
+    context: {
+        incheolisbest:"asdf"
+    }
 });
 
 const PORT = process.env.PORT

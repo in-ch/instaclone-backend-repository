@@ -10,9 +10,8 @@ export default{
             userName,
             email,
             password,
-            token
-        }) => {
-            const { id }= await jwt.verify(token, process.env.SECRET_KEY);
+        }, { incheolisbest }) => {
+            const { id }= await jwt.verify(incheolisbest, process.env.SECRET_KEY);
 
             let uglyPassword = null;  // null이여야지만 없을 경우 데이터를 넣지 않으니 null로 선언해야 함.
             if(uglyPassword){

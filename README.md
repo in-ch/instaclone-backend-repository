@@ -33,3 +33,5 @@ Instaclone Backend.
 
 #4.6 update할 때 prisma에 undefined를 보내면 데이터베이스에 그 값들을 보내지 않음. 
      그래서 알아서 필터링 해줌
+
+#4.7 3번째 인자의 context 인자는 모든 resolvers에 접근 가능함. 
