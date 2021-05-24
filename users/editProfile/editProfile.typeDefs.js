@@ -1,10 +1,6 @@
 import { gql } from "apollo-server";
 
 export default gql`
-    type EditProfileResult {
-        ok: Boolean!
-        error: String
-    }
     type Mutation{  # 꼭 스키마 연결할 필요 없음. 
         editProfile(
             firstName: String
@@ -12,9 +8,6 @@ export default gql`
             userName: String
             email: String
             password: String
-        ): EditProfileResult
-    }
-    type Query{ # 스키마 연결 필수. 
-        seeProfile(userName:String!):User 
+        ):User #User를 반환하는 것이다. 
     }
 `;
