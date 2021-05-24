@@ -15,11 +15,14 @@ export default{
             if(uglyPassword){
                 uglyPassword = await bcrypt.hash(password,10);
             }
-            const updatedUser =  client.user.update({where: {   // prisma에 undefined를 보내면 데이터베이스에 그 값들을 보내지 않음.
+
+            const updatedUser =  await client.user.update({where: {   // prisma에 undefined를 보내면 데이터베이스에 그 값들을 보내지 않음.
                 id:1,
-            }, data:{
+            }, 
+            data: {
                 firstName, lastName,userName, email, ...(uglyPassword&& {password : uglyPassword})
-            }});
+                }
+            });
 
             if(updatedUser.id){
                 return {
@@ -28,7 +31,7 @@ export default{
             } else {
                 return {
                     ok:false,
-                    error: '업데이트에 실패했습니다.',
+                    error: updatedUser,
                 }
             }
         }
