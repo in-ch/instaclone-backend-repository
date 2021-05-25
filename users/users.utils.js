@@ -25,5 +25,5 @@ export const protectResolver = (ourResolver) => (root, args, context, info) => {
             error: '로그인이 필요합니다.',
         };
     }
-    return ourResolver(root, args, context, info);
+    return ourResolver(root, args, context, info);   
 };
