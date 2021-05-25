@@ -26,6 +26,8 @@ model User {
   userName String @unique 
   email String @unique 
   password String 
+  bio String?
+  avatar String? // 프로필 이미지 
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 }

@@ -12,6 +12,7 @@ export default{
                 userName,
                 email,
                 password,
+                bio
             }, { loggedInUser, protectResolver }) => {
     
                 protectResolver(loggedInUser);
@@ -25,7 +26,7 @@ export default{
                     id: loggedInUser.id,
                 }, 
                 data: {
-                    firstName, lastName,userName, email, ...(uglyPassword&& {password : uglyPassword})
+                    firstName, lastName,userName, email, bio, ...(uglyPassword&& {password : uglyPassword})
                     }
                 });
     
