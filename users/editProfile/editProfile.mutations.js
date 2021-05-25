@@ -10,8 +10,10 @@ export default{
             userName,
             email,
             password,
-        }, { loggedInUser }) => {
+        }, { loggedInUser, protectResolver }) => {
 
+            protectResolver(loggedInUser);
+            
             let uglyPassword = null;  // null이여야지만 없을 경우 데이터를 넣지 않으니 null로 선언해야 함.
             if(uglyPassword){
                 uglyPassword = await bcrypt.hash(password,10);
