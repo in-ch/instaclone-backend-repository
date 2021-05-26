@@ -35,3 +35,5 @@ Instaclone Backend.
      그래서 알아서 필터링 해줌
 
 #4.7 3번째 인자의 context 인자는 모든 resolvers에 접근 가능함. 
+
+#4.9 서버에 파일을 업로드했기 때문에 apollo-server-express가 필요하다. 

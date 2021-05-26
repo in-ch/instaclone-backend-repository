@@ -2,6 +2,9 @@ import client from '../../client';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { protectResolver } from '../users.utils';
+import fs from "fs"
+
+process.cwd(); // 현재 파일의 정확한 위치 current working directory
 
 export default{
     Mutation: {
@@ -17,9 +20,10 @@ export default{
             }, { loggedInUser }) => {
                 
                 const { filename, createReadStream } = await avatar;
-                const stream = createReadStream();
-                console.log(stream);
-                
+                const readStream = createReadStream();
+                const writeStream = fs.createWriteStream(process.cwd() + "/uploads/" + filename);
+                readStream.pipe(writeStream);
+
                 let uglyPassword = null;  // null이여야지만 없을 경우 데이터를 넣지 않으니 null로 선언해야 함.
                 if(uglyPassword){
                     uglyPassword = await bcrypt.hash(password,10);
