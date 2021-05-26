@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { protectResolver } from '../users.utils';
 import fs from "fs"
 
-process.cwd(); // 현재 파일의 정확한 위치 current working directory
+// process.cwd(); // 현재 파일의 정확한 위치 current working directory
 
 export default{
     Mutation: {
