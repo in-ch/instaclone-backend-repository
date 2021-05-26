@@ -19,6 +19,7 @@ const server = new ApolloServer({
 
 const app = express();
 app.use(logger("tiny")); // 로그가 생김. 서버로 오는 모든 요청들을 볼 수 있음. 
+app.use("/static",express.static("uploads"));   // localhost:400/static/이미지 파일명. 
 server.applyMiddleware ({app});
 app.listen({ port: PORT }, () => {
     console.log(`🤫 Server is running on http://localhost:${PORT}`);
