@@ -14,10 +14,12 @@ export default{
                 password,
                 bio,
                 avatar
-            }, { loggedInUser, protectResolver }) => {
-    
-                protectResolver(loggedInUser);
-                console.log(avatar);
+            }, { loggedInUser }) => {
+                
+                const { filename, createReadStream } = await avatar;
+                const stream = createReadStream();
+                console.log(stream);
+                
                 let uglyPassword = null;  // null이여야지만 없을 경우 데이터를 넣지 않으니 null로 선언해야 함.
                 if(uglyPassword){
                     uglyPassword = await bcrypt.hash(password,10);
