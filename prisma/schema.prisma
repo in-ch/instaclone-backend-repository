@@ -28,6 +28,8 @@ model User {
   password String 
   bio String?
   avatar String? // 프로필 이미지 
+  followers User[] @relation("FollowRelation", references: [id])
+  following User[] @relation("FollowRelation", references: [id])
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 }
