@@ -36,4 +36,6 @@ Instaclone Backend.
 
 #4.7 3번째 인자의 context 인자는 모든 resolvers에 접근 가능함. 
 
-#4.9 서버에 파일을 업로드했기 때문에 apollo-server-express가 필요하다. 
+#4.19 서버에 파일을 업로드했기 때문에 apollo-server-express가 필요하다. 
+
+#4.22 db간 relationship은 매우 비싸기 때문에 그 값들을 조회하고 싶으면 findUnique에 따로 include를 적어줘야 한다. 
