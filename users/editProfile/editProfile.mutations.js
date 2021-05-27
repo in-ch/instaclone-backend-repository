@@ -19,14 +19,16 @@ export default{
                 avatar
             }, { loggedInUser }) => {
                 
-                if(avatar) {  // 아바타를 바꿨다면 바꿔준다. 
-                    let avatarUrl = null;
-                    const { filename, createReadStream } = await avatar;
-                    const newFilename = `${loggedInUser.id}-${Data.now()}-${filename}`;
-                    const readStream = createReadStream();
-                    const writeStream = fs.createWriteStream(process.cwd() + "/uploads/" + newFilename);
-                    readStream.pipe(writeStream);
-                    avatarUrl = `http://localhost:4000/static/${newFilename}`;
+                let avatarUrl = null;
+                if (avatar) {
+                  const { filename, createReadStream } = await avatar;
+                  const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
+                  const readStream = createReadStream();
+                  const writeStream = createWriteStream(
+                    process.cwd() + "/uploads/" + newFilename
+                  );
+                  readStream.pipe(writeStream);
+                  avatarUrl = `http://localhost:4000/static/${newFilename}`;
                 }
 
                 let uglyPassword = null;  // null이여야지만 없을 경우 데이터를 넣지 않으니 null로 선언해야 함.
@@ -38,8 +40,7 @@ export default{
                     id: loggedInUser.id,
                 }, 
                 data: {
-                    firstName, lastName,userName, email, bio, ...(uglyPassword && {password : uglyPassword}), 
-                                                              ...(avatarUrl && {avatar : avatarUrl})
+                    firstName, lastName,userName, email, bio, ...(uglyPassword && {password : uglyPassword}), ...(avatarUrl && { avatar: avatarUrl }),
                     }
                 });
     
