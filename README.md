@@ -39,3 +39,7 @@ Instaclone Backend.
 #4.19 서버에 파일을 업로드했기 때문에 apollo-server-express가 필요하다. 
 
 #4.22 db간 relationship은 매우 비싸기 때문에 그 값들을 조회하고 싶으면 findUnique에 따로 include를 적어줘야 한다. 
+
+#4.24 offset pagination 방식의 경우 table 형태로 값을 받아와서 Page별로 보여줄 때 효과적이다.
+      findUnique에서 select옵션을 통해 특정 값만 출력해줄 수 있다.
+      findMany와 count의 경우 some 옵션을 통해 where절을 쓴다. 
