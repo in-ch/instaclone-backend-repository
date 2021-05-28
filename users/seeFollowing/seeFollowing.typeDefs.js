@@ -7,6 +7,6 @@ export default gql`
         following: [User]
     }
     type Query{ # 스키마 연결 필수. 
-        seeFolloweing(userName:String!, lastId:Int!):seeFollowingResult! 
+        seeFollowing(userName:String!, lastId:Int!):seeFollowingResult! 
     }
 `;
