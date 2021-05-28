@@ -45,3 +45,6 @@ Instaclone Backend.
       findMany와 count의 경우 some 옵션을 통해 where절을 쓴다. 
 
 #4.25 cursor pagination의 경우 마지막 id값을 활용하기 때문에 무제한 스크롤링에 유효하다. 
+
+#4.26 computed를 이용해서 User의 다른 값들을 계산해서 변수로 넣을 수 있다. 
+
