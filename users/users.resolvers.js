@@ -16,12 +16,24 @@ export default{
                 }
             }
         }}),   
-        isMe: ({id}, args, context) => {  // context에 loggedInUser가 들어가 있음.  
+        isMe: ({id}, args, { loggedInUser }) => {  // context에 loggedInUser가 들어가 있음.  == context.loggedInUser
             if(!loggedInUser){
                 return false;
             }
             return id === loggedInUser.id;
         },
-        isFollowing : () => 'asdf',
+        isFollowing : async ({id}, args, {loggedInUser}) => {
+            if(!loggedInUser){
+                return false;
+            }
+            const exists = await client.user
+                .findUnique({where:{userName:loggedInUser.userName}})
+                .following({
+                    where:{
+                        id,
+                    },
+                });
+                return exists.length !== 0;
+        },
     }
 }
