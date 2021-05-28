@@ -48,3 +48,5 @@ Instaclone Backend.
 
 #4.26 computed를 이용해서 User의 다른 값들을 계산해서 변수로 넣을 수 있다. 
 
+#4.27 return 값이 User면 굳이 return을 안 적어줘도 됨. 
+      여러개를 반환하면 (ex, findMany) [User] 이런 식으로 배열로 반환해줘야함. 
