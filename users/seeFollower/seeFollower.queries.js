@@ -3,7 +3,7 @@ import client from '../../client';
 export default {
     Query: {
         seeFollowers: async (_, { userName, totalPage }) => {
-            const seeFollowers = await client.user.findUnique({where:{userName},select:{id}});  // select을 통해 특정 값만 받아올 수 있음.
+            const seeFollowers = await client.user.findUnique({where:{userName},select:{id:true}});  // select을 통해 특정 값만 받아올 수 있음.
             if(!seeFollowers){
                 return {
                     ok:false,

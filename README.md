@@ -43,3 +43,5 @@ Instaclone Backend.
 #4.24 offset pagination 방식의 경우 table 형태로 값을 받아와서 Page별로 보여줄 때 효과적이다.
       findUnique에서 select옵션을 통해 특정 값만 출력해줄 수 있다.
       findMany와 count의 경우 some 옵션을 통해 where절을 쓴다. 
+
+#4.25 cursor pagination의 경우 마지막 id값을 활용하기 때문에 무제한 스크롤링에 유효하다. 
