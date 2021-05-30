@@ -13,6 +13,7 @@ export default gql`
         followers: [User]
         bio: String
         avatar: String 
+        photos: [Photo]
         totalFollowers: Int!
         totalFollowing: Int!
         isMe: Boolean! 
