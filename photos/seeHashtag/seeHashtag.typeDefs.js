@@ -3,11 +3,11 @@ import { gql } from "apollo-server";
 export default gql`
     type result{
         ok: Boolean!
-        error: String 
-        photoId: Int
-        caption: String
+        error: String
+        id: Int!
+        photos: [Photo]
     }
     type Query {
-        seeHashtag(hashtag:String!):Hashtag
+        seeHashtag(hash:String!):result
     }
 `;

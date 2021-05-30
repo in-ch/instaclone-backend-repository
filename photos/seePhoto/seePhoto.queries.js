@@ -8,10 +8,17 @@ export default {
                     id
                 }
             });
-            console.log(newPhoto);
+            const hashtags = await client.photo.findUnique({
+                where:{
+                    id
+                }
+            }).hashtags();
+
             return {
                 photoId : newPhoto.id,
-                caption : newPhoto.caption
+                caption : newPhoto.caption,
+                userId : newPhoto.userId,
+                hashtags: hashtags 
             }
         }, 
     }
