@@ -18,5 +18,4 @@ export default gql`
         isMe: Boolean! 
         isFollowing: Boolean!
     }
-
 `;

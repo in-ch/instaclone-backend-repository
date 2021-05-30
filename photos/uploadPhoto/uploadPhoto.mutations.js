@@ -13,7 +13,6 @@ export default {
                   create: { hashtag },
                 }));
               }
-            console.log(hashtagObj);
             await client.photo.create({
                 data: {
                     file, 
