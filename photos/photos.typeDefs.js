@@ -6,7 +6,7 @@ export default gql`
         user: User! 
         file: String!
         caption: String
-        hashtags: [Hashtag]
+        hashtags(page:Int!): [Hashtag]
         createAt: String!
         updateAt: String! 
     }
@@ -16,5 +16,6 @@ export default gql`
         photos: [Photo]
         createAt: String!
         updateAt: String! 
+        totalPhotos: Int!
     }
 `;
