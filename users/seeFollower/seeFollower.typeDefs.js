@@ -8,6 +8,6 @@ export default gql`
         totalPage: Int
     }
     type Query{ # 스키마 연결 필수. 
-        seeFollowers(userName:String!,totalPage:Int!):seeFollowersResult!
+        seeFollowers(userName:String!,page:Int!):seeFollowersResult!
     }
 `;
