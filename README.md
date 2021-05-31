@@ -50,3 +50,6 @@ Instaclone Backend.
 
 #4.27 return 값이 User면 굳이 return을 안 적어줘도 됨. 
       여러개를 반환하면 (ex, findMany) [User] 이런 식으로 배열로 반환해줘야함. 
+
+#6.11 include와 select의 차이점은 include는 결과에 relationship을 추가해주고 select는 말그대로 받고 싶은 값만 받아노는 것이다. 
+      그리고 둘 중 하나만 써야 한다. 
