@@ -55,3 +55,6 @@ Instaclone Backend.
       그리고 둘 중 하나만 써야 한다. 
 
 #6.17 [shared] 폴더 안에 MutationResponse를 통해 result값들이 같은 것들은 굳이 쓸 필요없이 MutationResponse를 재활용해서 쓸 수 있다.
+
+#6.18 4번째 인자인 info에서 query인지 mutation인지 알 수 있다. 
+      이렇게 함으로써 query도 protect로 보호가 가능하다.
