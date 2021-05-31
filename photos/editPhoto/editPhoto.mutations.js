@@ -1,5 +1,6 @@
 import client from '../../client';
 import { protectResolver } from '../../users/users.utils';
+import { makeHashtag } from '../photos.utills';
 
 export default {
     Mutation: {
@@ -21,10 +22,17 @@ export default {
                     id,
                 },
                 data: {
-                    caption
+                    caption,
+                    hashtags: {
+                        disconnect: ok.hashtags,  // disconnect에는 지울 값들을 적어줘야 함.
+                        connectOrCreate:  makeHashtag(caption)
+                    }
                 }
             }); 
-            
+            return {
+                ok: true, 
+            }
+
         })
     }
 }
