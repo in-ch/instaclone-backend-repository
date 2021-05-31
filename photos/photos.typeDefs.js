@@ -9,6 +9,7 @@ export default gql`
         hashtags(page:Int!): [Hashtag]
         createAt: String!
         updateAt: String! 
+        comments: Int
         isMine: Boolean!
         likes: Int  #좋아요 갯수 
     }
