@@ -53,3 +53,5 @@ Instaclone Backend.
 
 #6.11 include와 select의 차이점은 include는 결과에 relationship을 추가해주고 select는 말그대로 받고 싶은 값만 받아노는 것이다. 
       그리고 둘 중 하나만 써야 한다. 
+
+#6.17 [shared] 폴더 안에 MutationResponse를 통해 result값들이 같은 것들은 굳이 쓸 필요없이 MutationResponse를 재활용해서 쓸 수 있다.
