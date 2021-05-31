@@ -23,6 +23,7 @@ model User {
   followers User[] @relation("FollowRelation", references: [id])
   following User[] @relation("FollowRelation", references: [id])
   likes Like[]
+  comments Comment[]
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 }
@@ -37,6 +38,7 @@ model Photo {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   likes Like[]
+  comments Comment[]
 }
 
 model Hashtag {
@@ -57,4 +59,15 @@ model Like {
     updateAt DateTime @updatedAt
 
     @@unique([photoId, userId])  // 좋아요를 2번 누를 수 없게 유니크 처리하는 것이다.
+}
+
+model Comment {
+    id Int @id @default(autoincrement())
+    user User @relation(fields: [userId], references: [id])
+    photo Photo @relation(fields: [photoId], references: [id])
+    payload String
+    userId Int 
+    photoId Int
+    createAt DateTime @default(now())
+    updateAt DateTime @updatedAt
 }
