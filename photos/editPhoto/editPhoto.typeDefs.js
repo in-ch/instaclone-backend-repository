@@ -6,6 +6,6 @@ export default gql`
         error: String 
     }
     type Mutation {
-        editPhoto(caption:String!):result!
+        editPhoto(id:Int!,caption:String!):result!
     }
 `;
