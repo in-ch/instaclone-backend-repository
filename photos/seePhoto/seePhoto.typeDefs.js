@@ -1,7 +1,7 @@
 import { gql } from "apollo-server";
 
 export default gql`
-    type result{
+    type Result{
         ok: Boolean!
         error: String 
         photoId: Int!
@@ -10,6 +10,6 @@ export default gql`
         hashtags: [Hashtag]
     }
     type Query {
-        seePhoto(id:Int!):result
+        seePhoto(id:Int!):Result
     }
 `;

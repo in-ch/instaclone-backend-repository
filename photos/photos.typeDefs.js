@@ -9,7 +9,7 @@ export default gql`
         hashtags(page:Int!): [Hashtag]
         createAt: String!
         updateAt: String! 
-        likes: Int!  #좋아요 갯수 
+        likes: Int  #좋아요 갯수 
     }
     type Hashtag {
         id: Int!
