@@ -22,7 +22,7 @@ export default{
                 
                 let avatarUrl = null;
                 if (avatar) {
-                  avatarUrl = await uploadPhoto(avatar, loggedInUser.id); // aws 업로드 코드   
+                  avatarUrl = await uploadToS3(avatar, loggedInUser.id,"avatars"); // aws 업로드 코드   
                 }
 
                 let uglyPassword = null;  // null이여야지만 없을 경우 데이터를 넣지 않으니 null로 선언해야 함.

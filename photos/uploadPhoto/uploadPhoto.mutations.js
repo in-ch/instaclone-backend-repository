@@ -1,4 +1,5 @@
 import client from '../../client';
+import { uploadToS3 } from '../../shared/shared.utils';
 import { protectResolver } from '../../users/users.utils';
 import { makeHashtag } from '../photos.utills';
 
@@ -8,10 +9,11 @@ export default {
             let hashtagObj = []; 
             if (caption) {
                 hashtagObj = makeHashtag(caption);
-              }
+            }
+            const fileUrl = await uploadToS3(file,loggedInUser.id,"uploads");
             await client.photo.create({
                 data: {
-                    file, 
+                    file:fileUrl, 
                     caption,
                     user: {
                         connect: {
