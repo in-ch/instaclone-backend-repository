@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { protectResolver } from '../users.utils';
 import fs from "fs"
+import { uploadPhoto } from '../../shared/shared.utils';
 
 // process.cwd(); // 현재 파일의 정확한 위치 current working directory
 
@@ -21,14 +22,7 @@ export default{
                 
                 let avatarUrl = null;
                 if (avatar) {
-                  const { filename, createReadStream } = await avatar;
-                  const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
-                  const readStream = createReadStream();
-                  const writeStream = createWriteStream(
-                    process.cwd() + "/uploads/" + newFilename
-                  );
-                  readStream.pipe(writeStream);
-                  avatarUrl = `http://localhost:4000/static/${newFilename}`;
+                  avatarUrl = await uploadPhoto(avatar, loggedInUser.id); // aws 업로드 코드   
                 }
 
                 let uglyPassword = null;  // null이여야지만 없을 경우 데이터를 넣지 않으니 null로 선언해야 함.
