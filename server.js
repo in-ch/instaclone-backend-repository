@@ -1,5 +1,6 @@
 require("dotenv").config();
 import express from 'express';
+import http from 'http';
 import logger from "morgan";
 import { ApolloServer} from "apollo-server-express";
 import { typeDefs, resolvers } from "./schema";
@@ -11,9 +12,11 @@ const apollo = new ApolloServer({
     typeDefs, // typeDefs와 resolvers를 적음으로써 upload scalar를 쓸 수 있음. 
     resolvers, 
     context: async ({req}) => {
-        return {
-            loggedInUser: await getUser(req.headers.incheolisbest),
-            protectResolver
+        if(req){
+            return {
+                loggedInUser: await getUser(req.headers.incheolisbest),
+                protectResolver
+            }
         }
     }
 });
@@ -21,9 +24,11 @@ const apollo = new ApolloServer({
 const app = express();
 app.use(logger("dev"));
 apollo.applyMiddleware({ app });
-apollo.installSubscriptionHandlers(app); // subscription에 대한 정보를, 다시 말해 웹소켓에 대한 정보를 우리 서버에 설치 (실시간 채팅을 위해서 .. )
 app.use("/static", express.static("uploads"));
 
-app.listen({ port: PORT }, () => {
+const httpServer = http.createServer(app);
+apollo.installSubscriptionHandlers(httpServer);
+
+httpServer.listen(PORT, () => {
     console.log(`🤫 Server is running on http://localhost:${PORT}/graphql ✅`);
 });
