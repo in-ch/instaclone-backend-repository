@@ -58,3 +58,5 @@ Instaclone Backend.
 
 #6.18 4번째 인자인 info에서 query인지 mutation인지 알 수 있다. 
       이렇게 함으로써 query도 protect로 보호가 가능하다.
+
+#7.7 실시간 채팅(listen)을 위해서 pubsub을 쓰는데 이건 교육용이고 프로용은 Redis를 써야함. 
