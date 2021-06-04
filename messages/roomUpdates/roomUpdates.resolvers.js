@@ -27,7 +27,7 @@ export default {
                 return withFilter(
                   () => pubsub.asyncIterator(NEW_MESSAGE),
                   async ({ roomUpdates }, { id }, {loggedInUser}) => {
-                    return roomUpdates.roomId === id; 
+                    return roomUpdates.roomId === id;   // function부분은 무조건 ture 혹은 false를 리턴해야한다.
                   }
                 )(root, args, context, info);
               },
