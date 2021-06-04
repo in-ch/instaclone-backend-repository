@@ -60,3 +60,5 @@ Instaclone Backend.
       이렇게 함으로써 query도 protect로 보호가 가능하다.
 
 #7.7 실시간 채팅(listen)을 위해서 pubsub을 쓰는데 이건 교육용이고 프로용은 Redis를 써야함. 
+
+#7.11 onConnect를 return 하면 context로 값이 이동한다.

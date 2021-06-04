@@ -11,11 +11,28 @@ const PORT = process.env.PORT;
 const apollo = new ApolloServer({
     typeDefs, // typeDefs와 resolvers를 적음으로써 upload scalar를 쓸 수 있음. 
     resolvers, 
-    context: async ({req}) => {
-        if(req){
+    context: async (ctx) => {
+        if (ctx.req) {
+          return {
+            loggedInUser: await getUser(ctx.req.headers.incheolisbest),
+          };
+        } else {
+          const {
+            connection: { context },
+          } = ctx;
+          return {
+            loggedInUser: context.loggedInUser,
+          };
+        }
+      },
+    subscriptions: {
+        onConnect: async({incheolisbest}) => {
+            if(!incheolisbest) {
+                throw new Error("리스닝을 시도할 수 없습니다.");
+            } 
+            const loggedInUser = await getUser(incheolisbest);
             return {
-                loggedInUser: await getUser(req.headers.incheolisbest),
-                protectResolver
+                loggedInUser,  
             }
         }
     }

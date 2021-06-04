@@ -7,9 +7,14 @@ export default {
     Subscription: {
         roomUpdates: {
             subscribe: async (root, args, context, info) => {
-                const room = await client.room.findUnique({
+                const room = await client.room.findFirst({
                   where: {
                     id: args.id,
+                    users: {
+                      some: {
+                        id: context.loggedInUser.id,
+                      },
+                    },
                   },
                   select: {
                     id: true,
@@ -21,8 +26,8 @@ export default {
               
                 return withFilter(
                   () => pubsub.asyncIterator(NEW_MESSAGE),
-                  ({ roomUpdates }, { id }) => {
-                    return roomUpdates.roomId === id;
+                  async ({ roomUpdates }, { id }, {loggedInUser}) => {
+                    return roomUpdates.roomId === id; 
                   }
                 )(root, args, context, info);
               },
