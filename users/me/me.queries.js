@@ -6,7 +6,7 @@ export default {
     me: protectResolver((_, __, { loggedInUser }) =>
       client.user.findUnique({
         where: {
-          id: 2
+          id: loggedInUser.id
         },
       })
     ),
