@@ -28,15 +28,6 @@ export default {
                 followers,
                 totalPage: totalPageCount
             }
-            // const bF = await client.user.findMany({
-            //     where:{
-            //         following: {
-            //             some: {
-            //                 userName
-            //             }
-            //         }
-            //     }
-            // })
         }
     },
 }
