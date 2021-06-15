@@ -8,10 +8,12 @@ export default gql`
         caption: String
         hashtags(page:Int!): [Hashtag]
         createAt: String!
-        updateAt: String! 
-        comments: Int
+        updateAt: String!
+        commentNumber: Int! 
+        comments: [Comment]
         isMine: Boolean!
         isLiked: Boolean!
+
         likes: Int  #좋아요 갯수 
     }
     type Hashtag {
