@@ -1,7 +1,11 @@
 import { gql } from "apollo-server";
 
 export default gql`
-    type Mutation{
-        deleteComment(id:Int!):MutationResponse
-    }
+  type DeleteCommentMutation {
+    ok: Boolean!
+    error: String
+  }
+  type Mutation {
+    deleteComment(id: Int!): DeleteCommentMutation!
+  }
 `;
