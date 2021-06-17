@@ -4,7 +4,6 @@ import { protectResolver } from "../../users/users.utils";
 export default {
     Mutation: {
         createComment: protectResolver( async(_,{photoId, payload},{loggedInUser})=> {
-            console.log('Heelo');
             const ok = await client.photo.findUnique({
                 where:{
                     id: photoId
